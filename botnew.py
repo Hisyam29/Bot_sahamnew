@@ -8,7 +8,7 @@ import numpy as np
 # MORA-TYPE SCANNER
 # =========================================================
 
-TOKEN = "8265694791:AAHElCfxfPoB40pZe5yv9tvVcQEIFIAQUAw"
+TOKEN = os.getenv("TOKEN")
 CHAT_IDS = ["1280847575"]
 
 # ==============================
@@ -43,7 +43,7 @@ def send_telegram(message):
 # LOAD SAHAM
 # =========================================================
 def load_symbols():
-    df = pd.read_excel(r"C:\Users\Hisyam\OneDrive\Documents\Coding\saham.xlsx")
+    df = pd.read_excel("saham.xlsx")
 
     print("KOLOM TERDETEKSI:", df.columns)
 
