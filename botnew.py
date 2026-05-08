@@ -27,19 +27,26 @@ TOP_LIMIT = 10
 # TELEGRAM
 # =========================================================
 def send_telegram(message):
+
+    print("TOKEN:", TOKEN)
+
     url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
 
     for chat_id in CHAT_IDS:
+
         data = {
             "chat_id": chat_id,
             "text": message
         }
 
         try:
-            requests.post(url, data=data)
-        except:
-            pass
+            res = requests.post(url, data=data)
 
+            print("STATUS:", res.status_code)
+            print("RESPONSE:", res.text)
+
+        except Exception as e:
+            print("TELEGRAM ERROR:", e)
 # =========================================================
 # LOAD SAHAM
 # =========================================================
